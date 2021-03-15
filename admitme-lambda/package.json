@@ -1,0 +1,32 @@
+{
+  "name": "admitme-lambda",
+  "version": "0.1.0",
+  "description": "An AWS Lambda function to provide a user info using the auth code",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./local/local.lambda.js",
+    "test": "jest"
+  },
+  "author": "Bhanu Rao",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^5.0.1",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "jwks-rsa": "^2.0.0",
+    "node-cache": "^5.1.2",
+    "node-fetch": "^2.6.1",
+    "query-string": "^6.14.1",
+    "uuidv4": "^5.0.1",
+    "winston": "^3.3.3"
+  },
+  "keywords": [
+    "aws",
+    "api-gateway",
+    "lambda"
+  ]
+}
