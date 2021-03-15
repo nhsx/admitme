@@ -1,4 +1,7 @@
-const headers = { "Content-type": "application/json" };
+const headers = {
+  "Content-type": "application/json",
+  "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+};
 
 class OK_200 {
   constructor(message) {
