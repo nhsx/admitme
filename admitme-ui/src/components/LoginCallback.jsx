@@ -28,10 +28,11 @@ export default function LoginCallback() {
   const invokeToken = async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
+    const corsURL = 'https://5uh8wlhsgj.execute-api.eu-west-2.amazonaws.com/default/admitme-user';
     if (!code) {
       return alert("No code found in query");
     }
-    const response = await axios.post(`/userinfo`, { code: code, redirectUri: appConfig.redirectUri });
+    const response = await axios.post(corsURL, { code: code, redirectUri: appConfig.redirectUri });
     setUserInfo(response.data.result);
   };
 
