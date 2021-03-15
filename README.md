@@ -2,12 +2,18 @@
 
 A prototype to generate QR code using NHS login data to identify user
 
-## Projects
+## http://admit-me.services.nhs.uk/
 
 The protoype consists of 
 
-Admitme-react
+## admitme-ui 
 
-Admitme-lambda
+A ReactJs frontend using NHS UI toolkit
 
-Admitme-Qrcode
+## admitme-userinfo
+
+A Lambda to get user information from sandpit environment
+
+## admitme-rrcode
+
+A NodeJS QR code generation utility
