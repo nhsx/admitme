@@ -14,6 +14,6 @@ A ReactJs frontend using NHS UI toolkit
 
 A Lambda to get user information from sandpit environment
 
-## admitme-rrcode
+## admitme-qrcode
 
 A NodeJS QR code generation utility

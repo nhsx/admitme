@@ -4,7 +4,9 @@ const Result = require("../util/result");
 class Handler {
   constructor(userInfoService) {
     this.handleUserInfoService = async (event, context, callback) => {
-      const { code, redirectUri } = event.body;
+      const parseEvent = JSON.parse(event.body);
+      const code =  parseEvent.code;
+      const redirectUri = parseEvent.redirectUri;
       try {
         logger.log("info", `Handler fetching user info details for code ${code} -- ${redirectUri}`);
         if (!code) {
