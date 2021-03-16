@@ -47,7 +47,7 @@ export default function LoginCallback() {
           <Container>
             <Row>
               <Col width="two-thirds">
-                <Label isPageHeading>Appointment details</Label>
+                <Label isPageHeading>Patient details</Label>
                 {summaryAppointment(userInfo)}
                 <Button onClick={() => generateQrCode()}>Generate QR code</Button>
               </Col>
