@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Label } from "nhsuk-react-components";
+import qrCodeImage from "../img/QRCodeImage.svg";
 
 export default function QrCode() {
   return (
@@ -10,6 +11,7 @@ export default function QrCode() {
             <Row>
               <Col width="two-thirds">
                 <Label isPageHeading>QR Code</Label>
+                <img id="nhs-qr-code" alt="login" src={qrCodeImage} />
               </Col>
             </Row>
           </Container>
