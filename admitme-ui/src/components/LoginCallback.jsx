@@ -2,37 +2,73 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Button, SummaryList, Container, Row, Col, Label } from "nhsuk-react-components";
 import { appConfig } from "../config";
+import { Link, useLocation } from "react-router-dom";
+import props from 'prop-types';
+
+const goback = () => {
+  window.location.href = '/'
+}
 
 const summaryAppointment = (userData) => {
   let summary = [];
-  Object.entries(userData).forEach(([key, value]) => {
-    summary.push(
-      <SummaryList.Row>
-        <SummaryList.Key>{key}</SummaryList.Key>
-        <SummaryList.Value>{value}</SummaryList.Value>
-      </SummaryList.Row>
-    );
-  });
+  console.log(JSON.stringify(userData));
+  let fullname = userData.given_name + " " + userData.family_name;
+  let dob = userData.birthdate;
+  let nhs_number = userData.nhs_number;
+  let email = userData.email;
+  let mobile_number = userData.phone_number;
+
+  summary.push(
+    <SummaryList.Row>
+      <SummaryList.Key>Full Name</SummaryList.Key>
+      <SummaryList.Value>{fullname}</SummaryList.Value>
+    </SummaryList.Row>
+  );
+  summary.push(
+    <SummaryList.Row>
+      <SummaryList.Key>Date of Birth</SummaryList.Key>
+      <SummaryList.Value>{dob}</SummaryList.Value>
+    </SummaryList.Row>
+  );
+  summary.push(
+    <SummaryList.Row>
+      <SummaryList.Key>NHS Number</SummaryList.Key>
+      <SummaryList.Value>{nhs_number}</SummaryList.Value>
+    </SummaryList.Row>
+  );
+  summary.push(
+    <SummaryList.Row>
+      <SummaryList.Key>Email Address</SummaryList.Key>
+      <SummaryList.Value>{email}</SummaryList.Value>
+    </SummaryList.Row>
+  );
+  summary.push(
+    <SummaryList.Row>
+      <SummaryList.Key>Mobile Number</SummaryList.Key>
+      <SummaryList.Value>{mobile_number}</SummaryList.Value>
+    </SummaryList.Row>
+  );
   return <SummaryList>{summary}</SummaryList>;
 };
 
-const generateQrCode = () => {
-  // to be implemented
-  window.location.href = '/qrcode'
+const createQRCode = (userData) => {
+  const data = 'Name : ' + userData.given_name + " " + userData.family_name + '\n' +
+    'Date of Birth : ' + userData.birthdate + '\n' +
+    'NHS Number : ' + userData.nhs_number + '\n' +
+    'Email : ' + userData.email + '\n' +
+    'Phone Number : ' + userData.phone_number + '\n';
+  return data;
+};
 
-}
-
-export default function LoginCallback() {
-  const [userInfo, setUserInfo] = useState({"loading": "loading"});
-
+export default function LoginCallback(props) {
+  const [userInfo, setUserInfo] = useState({ "loading": "loading" });
+  var code = props.location.state.code;
   const invokeToken = async () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get("code");
     const corsURL = 'https://qh7tiboi2c.execute-api.eu-west-2.amazonaws.com/dev';
     if (!code) {
       return alert("No code found in query");
     }
-    const response = await axios.post(corsURL,  { code: code, redirectUri: appConfig.redirectUri } );
+    const response = await axios.post(corsURL, { code: code, redirectUri: appConfig.redirectUri });
     setUserInfo(response.data.result);
   };
 
@@ -41,15 +77,26 @@ export default function LoginCallback() {
   }, []);
 
   return (
+
+
     <div>
       <div className="nhsuk-width-container ">
         <main className="nhsuk-main-wrapper " id="maincontent" role="main">
           <Container>
             <Row>
+              <Col width="two-thirds"><a class="navbar-item" onClick={() => goback()} > Back</a>
+                <br />
+                <br />
+              </Col>
+            </Row>
+            <Row>
               <Col width="two-thirds">
                 <Label isPageHeading>Patient details</Label>
                 {summaryAppointment(userInfo)}
-                <Button onClick={() => generateQrCode()}>Generate QR code</Button>
+                <Link className='nhsuk-link' to={{
+                  pathname: '/qrcode',
+                  state: { code: createQRCode(userInfo) }
+                }}> Generate QR code </Link>
               </Col>
             </Row>
           </Container>

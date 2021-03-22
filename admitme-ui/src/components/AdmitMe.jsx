@@ -1,9 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Label, LedeText, BodyText } from "nhsuk-react-components";
-
 import { appConfig } from "../config";
 import { uriBuilder } from "../utils/util";
-
 import loginButton from "../img/LogInWith_Original.svg";
 
 const getAuthCode = () => {
