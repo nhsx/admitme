@@ -18,7 +18,7 @@ export default function AdmitMe() {
                     <Container>
                         <Row>
                             <Col width="two-thirds">
-                                <Label isPageHeading>Welcome to Admit ME POC</Label>
+                                <Label isPageHeading>Welcome to Admit Me POC</Label>
                                 <BodyText>Please click button below to continue</BodyText>
                                 
                                 <Link  className='nhsuk-link' to={{

@@ -14,7 +14,7 @@ const download = function () {
 };
 
 const goback = () => {
-  window.location.href = '/'
+  window.location.href = '/welcome'
 }
 
 export default function QrCode(props) {
@@ -36,10 +36,10 @@ export default function QrCode(props) {
                 <Label isPageHeading>QR Code</Label>
                 <QRCode value={code} id="canvas" size='256' />
                 <br />
-                <br />
+                <br />{/* 
                 <Button onClick={download}>
                   Download QR
-				        </Button>
+				        </Button> */}
               </Col>
             </Row>
           </Container>
