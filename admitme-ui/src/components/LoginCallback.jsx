@@ -4,17 +4,29 @@ import { Button, SummaryList, Container, Row, Col, Label } from "nhsuk-react-com
 import { appConfig } from "../config";
 import { Link, useLocation } from "react-router-dom";
 import props from 'prop-types';
+import Moment from 'moment';
 
-const goback = () => {
-  window.location.href = '/'
+const goback = (paramcode) => {
+  window.location.href = '/welcome';
 }
 
 const summaryAppointment = (userData) => {
   let summary = [];
   console.log(JSON.stringify(userData));
-  let fullname = userData.given_name + " " + userData.family_name;
-  let dob = userData.birthdate;
-  let nhs_number = userData.nhs_number;
+  let fullname = '';
+  let dob = '';
+  let nhs_number = '';
+
+  if (typeof userData.given_name != 'undefined') {
+    fullname = userData.given_name + " " + userData.family_name;
+  
+  if (typeof userData.birthdate != 'undefined') {
+    dob = Moment(userData.birthdate).format('DD/MM/YYYY');
+  }
+  if (typeof userData.nhs_number != 'undefined') {
+    nhs_number = userData.nhs_number;
+    nhs_number = nhs_number.substring(0, 3) + " " + nhs_number.substring(3, 6) + " " + nhs_number.substring(6, 11);
+  }
   let email = userData.email;
   let mobile_number = userData.phone_number;
 
@@ -49,6 +61,7 @@ const summaryAppointment = (userData) => {
     </SummaryList.Row>
   );
   return <SummaryList>{summary}</SummaryList>;
+  }
 };
 
 const createQRCode = (userData) => {
@@ -63,6 +76,7 @@ const createQRCode = (userData) => {
 export default function LoginCallback(props) {
   const [userInfo, setUserInfo] = useState({ "loading": "loading" });
   var code = props.location.state.code;
+  const paramcode = code;
   const invokeToken = async () => {
     const corsURL = 'https://qh7tiboi2c.execute-api.eu-west-2.amazonaws.com/dev';
     if (!code) {
