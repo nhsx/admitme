@@ -19,7 +19,6 @@ const goback = () => {
 
 export default function QrCode(props) {
   const code = props.location.state.code;
-  alert(code);
   return (
     <div>
       <div className="nhsuk-width-container">
