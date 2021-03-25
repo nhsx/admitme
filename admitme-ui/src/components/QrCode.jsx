@@ -1,31 +1,29 @@
 import React from "react";
 import { Container, Row, Col, Label, Button } from "nhsuk-react-components";
 import qrCodeImage from "../img/QRCodeImage.svg";
-
+import { Link, useLocation } from "react-router-dom";
 import QRCode from "qrcode.react";//added by TRUPTI
 import props from 'prop-types';//added by TRUPTI
 
-
-const download = function () {
-  const link = document.createElement("a");
-  link.download = "filename.png";
-  link.href = document.getElementById("canvas").toDataURL();
-  link.click();
-};
-
-const goback = () => {
-  window.location.href = '/welcome'
+const goback = (paramcode) => {
+  window.location.href = '/welcome?code=' + paramcode
 }
 
 export default function QrCode(props) {
-  const code = props.location.state.code;
+  let code = '';
+  let paramcode = '';
+  if (typeof props.location.state != 'undefined') {
+    code = props.location.state.code;
+    paramcode = props.location.state.paramcode;
+  }
   return (
     <div>
       <div className="nhsuk-width-container">
         <main className="nhsuk-main-wrapper" id="maincontent" role="main">
           <Container>
             <Row>
-              <Col width="two-thirds"><a class="navbar-item" onClick={() => goback()} >Back</a>
+              <Col width="two-thirds">
+                <a onClick={() => goback(paramcode)} ><u>Back</u></a>
                 <br />
                 <br />
               </Col>
@@ -33,12 +31,7 @@ export default function QrCode(props) {
             <Row>
               <Col width="two-thirds">
                 <Label isPageHeading>QR Code</Label>
-                <QRCode value={code} id="canvas" size='256' />
-                <br />
-                <br />{/* 
-                <Button onClick={download}>
-                  Download QR
-				        </Button> */}
+                <QRCode value={code} id="canvas" size={300} />
               </Col>
             </Row>
           </Container>

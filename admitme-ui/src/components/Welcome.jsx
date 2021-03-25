@@ -11,7 +11,6 @@ export default function AdmitMe() {
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
     return (
-
         <div>
             <div className="nhsuk-width-container">
                 <main className="nhsuk-main-wrapper" id="maincontent" role="main">
@@ -19,8 +18,7 @@ export default function AdmitMe() {
                         <Row>
                             <Col width="two-thirds">
                                 <Label isPageHeading>Welcome to Admit Me POC</Label>
-                                <BodyText>Please click button below to continue</BodyText>
-                                
+                                <BodyText>Please click button below to continue</BodyText>                                
                                 <Link  className='nhsuk-link' to={{
                                     pathname: '/logincallback',
                                     state: {code}

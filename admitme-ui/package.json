@@ -9,11 +9,14 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
+    "cors": "^2.8.5",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.12.3",
+    "moment": "^2.29.1",
     "nhsuk-frontend": "^4.1.0",
     "nhsuk-react-components": "^1.2.8",
     "node-sass": "^5.0.0",
+    "node-sessionstorage": "^1.0.0",
     "qrcode.react": "0.9.3",
     "querystring": "^0.2.1",
     "react": "^17.0.1",
@@ -22,9 +25,10 @@
     "react-qr-scanner": "^1.0.0-alpha.7",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "sessionstorage-for-nodejs": "^1.0.0",
     "uuid": "^8.3.2",
-    "moment": "^2.29.1",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "http-proxy-middleware": "^1.0.6"
   },
   "scripts": {
     "start": "set PORT=5001 &&  react-scripts start",
