@@ -17,6 +17,7 @@ const route = "/userinfo";
 
 app.route(route).post(function (req, res) {
   async function handleUserInfo(req) {
+	  console.log(req.body);
     const { code, redirectUri } = req.body;
     let event = {};
     event.body = {

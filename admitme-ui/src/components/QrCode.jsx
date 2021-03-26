@@ -31,7 +31,7 @@ export default function QrCode(props) {
             <Row>
               <Col width="two-thirds">
                 <Label isPageHeading>QR Code</Label>
-                <QRCode value={code} id="canvas" size={300} />
+                <QRCode level='M' value={JSON.stringify(code)} id="canvas" size={300} />
               </Col>
             </Row>
           </Container>
