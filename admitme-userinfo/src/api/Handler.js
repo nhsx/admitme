@@ -4,6 +4,10 @@ const Result = require("../util/result");
 class Handler {
   constructor(userInfoService) {
     this.handleUserInfoService = async (event, context, callback) => {
+		
+	console.log('In handler : '+JSON.stringify(event.body));
+	
+	
       const parseEvent = JSON.parse(event.body);
       const code =  parseEvent.code;
       const redirectUri = parseEvent.redirectUri;

@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import props from 'prop-types';
 import Moment from 'moment';
 
+const fhir = require('../utils/fhir.json');
+
 const goback = (paramcode) => {
   window.location.href = '/welcome?code=' + paramcode
 }
@@ -63,22 +65,30 @@ const summaryAppointment = (userData) => {
 };
 
 const createQRCode = (userData) => {
-  let dob = '';
-  let nhs_number = '';
   let data = '';
   if (typeof userData.birthdate != 'undefined') {
+    data = JSON.stringify(fhir);
+    data = data.replace('nhs_number', userData.nhs_number);
+    data = data.replace('family_name', userData.family_name);
+    data = data.replace('given_name', userData.given_name);
+    data = data.replace('phone_number', userData.phone_number);
+    data = data.replace('email_id', userData.email);
+    data = data.replace('birthdate_admitme', userData.birthdate);
+    data = data.replace('birthdate_admitme_2', userData.birthdate);
+  }
+  /*  if (typeof userData.birthdate != 'undefined') {
     dob = Moment(userData.birthdate).format('DD/MM/YYYY');
     if (typeof userData.nhs_number != 'undefined') {
       nhs_number = userData.nhs_number;
       nhs_number = nhs_number.substring(0, 3) + " " + nhs_number.substring(3, 6) + " " + nhs_number.substring(6, 11);
     }
-    data = 'Name : ' + userData.given_name + " " + userData.family_name + '\n' +
+     data = 'Full Name : ' + userData.given_name + " " + userData.family_name + '\n' +
       'Date of Birth : ' + dob + '\n' +
       'NHS Number : ' + nhs_number + '\n' +
-      'Email : ' + userData.email + '\n' +
+       'Email Address : ' + userData.email + '\n' +
       'Phone Number : ' + userData.phone_number + '\n';
-  }
-  return data;
+   } */
+  return JSON.stringify(data);
 };
 
 export default function LoginCallback(props) {
@@ -101,6 +111,7 @@ export default function LoginCallback(props) {
 
 
   if (typeof userInfo.birthdate != 'undefined') {
+    sessionStorage.setItem('userdata', JSON.stringify(userInfo));
     return (
       <div>
         <div className="nhsuk-width-container ">
@@ -130,7 +141,9 @@ export default function LoginCallback(props) {
     );
   }
   else {
-
+    if (sessionStorage.getItem('userdata') != null) {
+      setUserInfo(JSON.parse(sessionStorage.getItem('userdata')));
+    }
     return (
       <div>
         <div className="nhsuk-width-container ">
@@ -147,6 +160,11 @@ export default function LoginCallback(props) {
                 <Col width="two-thirds">
                   <Label isPageHeading>Patient details</Label>
                   {summaryAppointment(userInfo)}
+                  <Link className='nhsuk-link-disabled' to={{
+                    pathname: '/qrcode',
+                    state: { code: createQRCode(userInfo), paramcode: paramcode }
+                  }}> Generate QR code </Link>
+
 
                 </Col>
               </Row>

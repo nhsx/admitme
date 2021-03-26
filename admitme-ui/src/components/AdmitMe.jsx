@@ -15,6 +15,7 @@ const getAuthCode = () => {
 };
 
 export default function AdmitMe() {
+  sessionStorage.clear();
   return (
     <div>
       <div className="nhsuk-width-container">
@@ -24,7 +25,7 @@ export default function AdmitMe() {
               <Col width="two-thirds">
                 <Label isPageHeading>Admit Me</Label>
                 <LedeText>A proof of concept QR code generation feature on your NHS app.</LedeText>
-                <BodyText>Generate QR code to automatically transfer patient demographic data from the NSH app to clinical systems.</BodyText>
+                <BodyText>Generate QR code to automatically transfer patient demographic data from the NHS app to clinical systems.</BodyText>
                 <button id="log-in-button" onClick={() => getAuthCode()}>
                   <img id="nhs-login-img" alt="login" src={loginButton} />
                 </button>

@@ -6,6 +6,7 @@ import { Header, Footer } from "nhsuk-react-components";
 import AdmitMe from "./components/AdmitMe";
 import LoginCallback from "./components/LoginCallback";
 import QrCode from "./components/QrCode";
+import QrScanner from "./components/QrScanner";
 import Welcome from "./components/Welcome";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/logincallback" component={LoginCallback} />
         <Route exact path="/qrcode" component={QrCode} />
         <Route exact path="/welcome" component={Welcome} />
+        <Route exact path="/qrscanner" component={QrScanner} />
 
       </Switch>
       <Footer>
