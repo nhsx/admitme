@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Button, SummaryList, Container, Row, Col, Label } from "nhsuk-react-components";
+import { Button, SummaryList, Container, Row, Col, Label, LedeText, BodyText } from "nhsuk-react-components";
 import { appConfig } from "../config";
 import { Link } from "react-router-dom";
 import props from 'prop-types';
@@ -126,7 +126,9 @@ export default function LoginCallback(props) {
               </Row>
               <Row>
                 <Col width="two-thirds">
-                  <Label isPageHeading>Patient details</Label>
+                  <Label isPageHeading style={{fontSize:'28px'}}>Share your details with NHS staff</Label>
+                  <BodyText>If you are arriving for an appointment, you can transfer your personal details securely to certain members of NHS staff.</BodyText>
+                  <BodyText>Please check the details below are correct and  press Generate QR code when you are ready for them to scan your device.</BodyText>
                   {summaryAppointment(userInfo)}
                   <Link className='nhsuk-link' to={{
                     pathname: '/qrcode',
@@ -158,7 +160,7 @@ export default function LoginCallback(props) {
               </Row>
               <Row>
                 <Col width="two-thirds">
-                  <Label isPageHeading>Patient details</Label>
+                  <Label isPageHeading>Share your details with NHS staff</Label>
                   {summaryAppointment(userInfo)}
                   <Link className='nhsuk-link-disabled' to={{
                     pathname: '/qrcode',
