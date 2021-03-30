@@ -1,0 +1,78 @@
+@import 'node_modules/nhsuk-frontend/packages/nhsuk';
+
+#log-in-button {
+    height: 70px;
+    width: auto;
+    border: none;
+    background-color: white;
+    padding: 0;
+    cursor: pointer;
+}
+
+#nhs-login-img {
+    height: 70px;
+    width: auto;
+}
+
+@media only screen and (max-width: 500px) {
+    #log-in-button {
+        height: 50px;
+        width: auto;
+        border: none;
+        background-color: white;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    #nhs-login-img {
+        height: 50px;
+        width: auto;
+    }
+}
+
+.nhsuk-link-disabled{
+    @include nhsuk-font(19);
+    @include nhsuk-responsive-margin(5, 'bottom', $adjustment: $button-shadow-size); 
+  
+    -webkit-appearance: none;
+    background-color: $nhsuk-button-color;
+    border: $nhsuk-border-width-form-element solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; 
+    box-sizing: border-box;
+    color: white !important;    
+    text-decoration: inherit;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    margin-top: 0;
+    padding: 12px nhsuk-spacing(3);
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    width: auto;
+    pointer-events: none;
+}
+
+.nhsuk-link{
+    @include nhsuk-font(19);
+    @include nhsuk-responsive-margin(5, 'bottom', $adjustment: $button-shadow-size); 
+  
+    -webkit-appearance: none;
+    background-color: $nhsuk-button-color;
+    border: $nhsuk-border-width-form-element solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; 
+    box-sizing: border-box;
+    color: white !important;    
+    text-decoration: inherit;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    margin-top: 0;
+    padding: 12px nhsuk-spacing(3);
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    width: auto;
+}
