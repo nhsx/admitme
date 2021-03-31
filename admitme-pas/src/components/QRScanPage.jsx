@@ -67,7 +67,7 @@ export default function QRScanPage() {
                     </Row>
                     <Row>
                         <Col width="two-thirds">
-                            <Label isPageHeading style={{ fontSize: '28px' }}>Welcome to NHS x PAS</Label>
+                            <Label isPageHeading style={{ fontSize: '28px' }}>Welcome to NHSX  PAS</Label>
                             <p style={{
                                 position: "absolute",
                                 right: '50px',
@@ -79,27 +79,27 @@ export default function QRScanPage() {
 
                         <Col>
                             <label style={labelstyle}>Full name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit" }} />
+                            <input type="text" style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor:"darkgrey" }} disabled={true}/>
                             <br />
                             <br />
 
                             <label style={labelstyle}>Date of birth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit" }} />
+                            <input type="text" style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor: "darkgrey" }} disabled={true}/>
                             <br />
                             <br />
 
                             <label style={labelstyle}>NHS Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit" }} />
+                            <input type="text" style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor:"darkgrey" }} disabled={true}/>
                             <br />
                             <br />
 
                             <label style={labelstyle}>Email address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit" }} />
+                            <input type="text" style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor:"darkgrey" }} disabled={true}/>
                             <br />
                             <br />
 
                             <label style={labelstyle}><b>Mobile Number&nbsp;&nbsp;</b></label>
-                            <input type="text" style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit" }} />
+                            <input type="text" style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor:"darkgrey" }} disabled={true}/>
                             <br />
                             <br />
                             

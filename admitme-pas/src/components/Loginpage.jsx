@@ -30,9 +30,9 @@ function Loginpage() {
       <div className="nhsuk-width-container">
         <main className="nhsuk-main-wrapper" id="maincontent" role="main">
           <Container>
-            <BodyText><b>Welocme to NHS PAS</b></BodyText>
+            <BodyText><b>Welcome to NHSX Mock PAS</b></BodyText>
             <Form onSubmit={handleSubmit}>
-              <Input type="text" onChange={e => setName(e.target.value)} placeholder="Enter username" style={{ width: '250px' }} label='UserName' />
+              <Input type="text" onChange={e => setName(e.target.value)} placeholder="Enter username" style={{ width: '250px' }} label='Username' />
               <Input type="password" onChange={e => setPassword(e.target.value)} style={{ width: '250px' }} placeholder="Enter password" label='Password' id='password' />
               <Button style={{ width: '120px' }} >Login</Button>
             </Form>
