@@ -89,28 +89,28 @@ class QRScanPage extends Component {
             </Row>
             <Row>
               <Col width="two-thirds">
-                <Label isPageHeading style={{ fontSize: '28px' }}>Welcome to NHSX  PAS</Label>
+                <Label isPageHeading style={{ fontSize: '28px' }}>Welcome to NHSX Mock PAS</Label>
                 <p style={{
                   position: "absolute",
                   right: '50px',
                   top: '85px'
-                }} ><b> Logged in as, {code}</b></p>
+                }} ><b> Logged in as {code}</b></p>
               </Col>
             </Row>
             <Row>
 
               <Col>
-                <label style={labelstyle}>Full Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <label style={labelstyle}>Full Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <input type="text" value={this.state.fullname} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor: "darkgrey" }} disabled={true} />
                 <br />
                 <br />
 
-                <label style={labelstyle}>Date Of Birth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <label style={labelstyle}>Date Of Birth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <input type="text" value={this.state.dob} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor: "darkgrey" }} disabled={true} />
                 <br />
                 <br />
 
-                <label style={labelstyle}>NHS Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <label style={labelstyle}>NHS Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <input type="text" value={this.state.nhsnumber} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor: "darkgrey" }} disabled={true} />
                 <br />
                 <br />
