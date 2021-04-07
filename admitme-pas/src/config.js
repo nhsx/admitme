@@ -1,4 +1,4 @@
 export const  appConfig = {
-    userid: 'testuser',
-    passowrd: 'testuser'
+    userid: 'Testuser',
+    passowrd: 'Testuser'
   }

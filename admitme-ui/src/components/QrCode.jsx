@@ -31,7 +31,7 @@ export default function QrCode(props) {
             <Row>
               <Col width="two-thirds">
                 <Label isPageHeading style={{ fontSize: '25px' }}>Share your details with NHS staff</Label>
-                <QRCode level='M' value={JSON.stringify(code)} id="canvas" size={350} />
+                <QRCode level='M' value={JSON.stringify(code)} id="canvas" />
               </Col>
             </Row>
           </Container>
