@@ -125,7 +125,7 @@ class QRScanPage extends Component {
                 
               </Col>
             </Row>
-            <Row>
+            <Row style = {{backgroundColor: 'grey'}}>
               <Col width="two-thirds">
                 <br />
                 <Label isPageHeading style={{ fontSize: '28px' }}>Patient Profile </Label>
