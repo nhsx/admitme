@@ -67,14 +67,13 @@ const summaryAppointment = (userData) => {
 const createQRCode = (userData) => {
   let data = '';
   if (typeof userData.birthdate != 'undefined') {
-    data = JSON.stringify(fhir);
+    data = JSON.stringify(fhir);	
     data = data.replace('nhs_number', userData.nhs_number);
     data = data.replace('family_name', userData.family_name);
     data = data.replace('given_name', userData.given_name);
     data = data.replace('phone_number', userData.phone_number);
     data = data.replace('email_id', userData.email);
     data = data.replace('birthdate_admitme', userData.birthdate);
-    data = data.replace('birthdate_admitme_2', userData.birthdate);
   }
   /*  if (typeof userData.birthdate != 'undefined') {
     dob = Moment(userData.birthdate).format('DD/MM/YYYY');
@@ -88,7 +87,7 @@ const createQRCode = (userData) => {
        'Email Address : ' + userData.email + '\n' +
       'Phone Number : ' + userData.phone_number + '\n';
    } */
-  return JSON.stringify(data);
+  return data;
 };
 
 export default function LoginCallback(props) {
