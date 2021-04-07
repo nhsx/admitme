@@ -28,8 +28,9 @@ class QRScanPage extends Component {
     window.location.href = "/";
   }
   handleScan(data) {
-    let d = JSON.parse(data)
-    d.entry.map((test) => {
+    let d = JSON.parse(data).replace('\\','');
+    let pasred = JSON.parse(d);    
+    pasred.entry.map((test) => {
       let nhs_number = test.resource.identifier[0].value;
       this.setState({
         result: data,
