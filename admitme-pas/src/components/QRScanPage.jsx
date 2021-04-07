@@ -15,12 +15,17 @@ class QRScanPage extends Component {
       email: '',
       mobile: '',
       dob: '',
-      disbld : true,
+      disbld: true,
     }
 
     this.handleScan = this.handleScan.bind(this)
     this.cleardata = this.cleardata.bind(this)
 
+  }
+
+  logout() {
+
+    window.location.href = "/";
   }
   handleScan(data) {
     let d = JSON.parse(data)
@@ -33,7 +38,7 @@ class QRScanPage extends Component {
         mobile: test.resource.telecom[0].value,
         email: test.resource.telecom[1].value,
         dob: Moment(test.resource.birthDate).format('DD/MM/YYYY'),
-        disbld : false,
+        disbld: false,
       })
     }
     )
@@ -43,7 +48,7 @@ class QRScanPage extends Component {
   }
 
   cleardata() {
-    this.setState( {
+    this.setState({
       result: 'No result',
       nhsnumber: '',
       fullname: '',
@@ -67,14 +72,14 @@ class QRScanPage extends Component {
           position: "absolute",
           right: '10px',
           top: '5px'
-        }} onClick={this.getAuthCode} > Logout</Button>
+        }} onClick={this.logout} > Logout</Button>
 
         <main className="nhsuk-main-wrapper" id="maincontent" role="main">
           <Container>
             <Row>
               <Col>
                 <Button onClick={this.scanQR} disabled={true}> Scan</Button>&nbsp;&nbsp;
-                <img style ={{height:'60px',width: '60px'}} src={qrlogo}></img>
+                <img style={{ height: '60px', width: '60px' }} src={qrlogo}></img>
                 <BarcodeReader
                   onError={this.handleError}
                   onScan={this.handleScan}
@@ -95,37 +100,37 @@ class QRScanPage extends Component {
 
               <Col>
                 <label style={labelstyle}>Full Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" value={this.state.fullname} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor:"darkgrey" }} disabled={true}/>
+                <input type="text" value={this.state.fullname} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor: "darkgrey" }} disabled={true} />
                 <br />
                 <br />
 
                 <label style={labelstyle}>Date Of Birth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" value={this.state.dob} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor: "darkgrey" }} disabled={true}/>
+                <input type="text" value={this.state.dob} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor: "darkgrey" }} disabled={true} />
                 <br />
                 <br />
 
                 <label style={labelstyle}>NHS Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" value={this.state.nhsnumber}  style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor:"darkgrey" }} disabled={true}/>
+                <input type="text" value={this.state.nhsnumber} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor: "darkgrey" }} disabled={true} />
                 <br />
                 <br />
 
                 <label style={labelstyle}>Email Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" value={this.state.email} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor:"darkgrey" }} disabled={true}/>
+                <input type="text" value={this.state.email} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor: "darkgrey" }} disabled={true} />
                 <br />
                 <br />
 
                 <label style={labelstyle}><b>Mobile Number&nbsp;&nbsp;</b></label>
-                            <input type="text" value={this.state.mobile} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor:"darkgrey" }} disabled={true}/>
+                <input type="text" value={this.state.mobile} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor: "darkgrey" }} disabled={true} />
                 <br />
                 <br />
 
                 <Button disabled={true}>Search</Button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <Button onClick={this.cleardata} disabled={this.state.disbld}>Clear</Button>
-                
+
               </Col>
             </Row>
-            <Row style = {{backgroundColor: 'grey'}}>
+            <Row style={{ backgroundColor: 'grey' }}>
               <Col width="two-thirds">
                 <br />
                 <Label isPageHeading style={{ fontSize: '28px' }}>Patient Profile </Label>
