@@ -78,6 +78,16 @@ class QRScanPage extends Component {
         <main className="nhsuk-main-wrapper" id="maincontent" role="main">
           <Container>
             <Row>
+              <Col width="two-thirds">
+                <Label isPageHeading style={{ fontSize: '28px' }}>Welcome to NHSX Mock PAS</Label>
+                <p style={{
+                  position: "absolute",
+                  right: '50px',
+                  top: '115px'
+                }} ><b> Logged in as {code}</b></p>
+              </Col>
+            </Row>
+            <Row>
               <Col>
                 <Button onClick={this.scanQR} disabled={true}> Scan</Button>&nbsp;&nbsp;
                 <img style={{ height: '60px', width: '60px' }} src={qrlogo}></img>
@@ -85,16 +95,6 @@ class QRScanPage extends Component {
                   onError={this.handleError}
                   onScan={this.handleScan}
                 />
-              </Col>
-            </Row>
-            <Row>
-              <Col width="two-thirds">
-                <Label isPageHeading style={{ fontSize: '28px' }}>Welcome to NHSX Mock PAS</Label>
-                <p style={{
-                  position: "absolute",
-                  right: '50px',
-                  top: '85px'
-                }} ><b> Logged in as {code}</b></p>
               </Col>
             </Row>
             <Row>
