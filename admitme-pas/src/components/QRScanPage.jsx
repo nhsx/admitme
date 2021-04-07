@@ -94,12 +94,12 @@ class QRScanPage extends Component {
             <Row>
 
               <Col>
-                <label style={labelstyle}>Full name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <label style={labelstyle}>Full Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <input type="text" value={this.state.fullname} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor:"darkgrey" }} disabled={true}/>
                 <br />
                 <br />
 
-                <label style={labelstyle}>Date of birth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <label style={labelstyle}>Date Of Birth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <input type="text" value={this.state.dob} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor: "darkgrey" }} disabled={true}/>
                 <br />
                 <br />
@@ -109,7 +109,7 @@ class QRScanPage extends Component {
                 <br />
                 <br />
 
-                <label style={labelstyle}>Email address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <label style={labelstyle}>Email Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <input type="text" value={this.state.email} style={{ height: '40px', width: '300px', padding: '4px', border: '2px solid #4c6272', fontFamily: "inherit", backgroundColor:"darkgrey" }} disabled={true}/>
                 <br />
                 <br />
