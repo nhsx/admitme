@@ -27,10 +27,17 @@ class QRScanPage extends Component {
 
     window.location.href = "/";
   }
+
   handleScan(data) {
-    let d = JSON.parse(data).replace('\\','');
-    let pasred = JSON.parse(d);    
-    pasred.entry.map((test) => {
+
+    // String handling - scanner is sending funky strings in! Replace @ symbols except for the email.
+    data = data.replace(/@/g, '"');
+    data = data.replace(/"demo/g, '@demo');
+    data = data.replace('\\','');
+
+    let parsed = JSON.parse(data)
+    console.log(parsed);
+    parsed.entry.map((test) => {
       let nhs_number = test.resource.identifier[0].value;
       this.setState({
         result: data,
@@ -89,7 +96,7 @@ class QRScanPage extends Component {
             </Row>
             <Row>
               <Col>
-                <Button onClick={this.scanQR} disabled={true}> Scan</Button>&nbsp;&nbsp;
+                <Button onClick={this.handleScan} disabled={true}> Scan</Button>&nbsp;&nbsp;
                 <img style={{ height: '60px', width: '60px' }} src={qrlogo}></img>
                 <BarcodeReader
                   onError={this.handleError}
