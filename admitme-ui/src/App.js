@@ -3,11 +3,11 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { Header, Footer } from "nhsuk-react-components";
 
-import AdmitMe from "./components/AdmitMe";
-import LoginCallback from "./components/LoginCallback";
-import QrCode from "./components/QrCode";
-import QrScanner from "./components/QrScanner";
-import Welcome from "./components/Welcome";
+import AdmitMe from "./pages/AdmitMe";
+import UserInfoPage from "./pages/UserInfoPage";
+import QrCode from "./pages/QrCode";
+import QrScanner from "./pages/QrScanner";
+import Welcome from "./pages/Welcome";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
       </Header>
       <Switch>
         <Route exact path="/" component={AdmitMe} />
-        <Route exact path="/logincallback" component={LoginCallback} />
+        <Route exact path="/logincallback" component={UserInfoPage} />
         <Route exact path="/qrcode" component={QrCode} />
         <Route exact path="/welcome" component={Welcome} />
         <Route exact path="/qrscanner" component={QrScanner} />
