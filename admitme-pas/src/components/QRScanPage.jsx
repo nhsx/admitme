@@ -29,19 +29,13 @@ class QRScanPage extends Component {
   }
 
   handleScan(data) {
-
-    let j = { "resourceType": "Bundle", "meta": { "profile": ["https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"] }, "type": "message", "entry": [{ "fullUrl": "urn:uuid:b64c4afa-8261-11eb-8dcd-0242ac130003", "resource": { "resourceType": "Patient", "id": "b64c4afa-8261-11eb-8dcd-0242ac130003", "identifier": [{ "value": "9686368906" }], "name": [{ "use": "official", "family": "HUGHES", "given": ["Iain"] }], "telecom": [{ "system": "phone", "value": "+447887510887", "use": "mobile" }, { "system": "email", "value": "testuserlive+1@demo.signin.nhs.uk" }], "birthDate": "1942-02-01" } }] }
-    console.log("SCANNED data: ", data);
     // String handling - scanner is sending funky strings in! Replace @ symbols except for the email.
     data = data.replace(/@/g, '"');
     data = data.replace(/#/g, '\\');
     data = data.replace(/"demo/g, '@demo');
-    console.log("Cleaned data: ", data);
 
     let parsed = JSON.parse(data).replace('\\', '');
-    console.log("Parsed: ", parsed);
     parsed = JSON.parse(parsed);
-    console.log("Parsed final: ", parsed);
     parsed.entry.map((test) => {
       let nhs_number = test.resource.identifier[0].value;
       this.setState({
@@ -56,6 +50,7 @@ class QRScanPage extends Component {
     }
     )
   }
+  
   handleError(err) {
     console.error(err)
   }
