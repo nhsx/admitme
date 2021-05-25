@@ -5,9 +5,6 @@ import { Header, Footer } from "nhsuk-react-components";
 
 import AdmitMe from "./pages/AdmitMe";
 import UserInfoPage from "./pages/UserInfoPage";
-import QrCode from "./pages/QrCode";
-import QrScanner from "./pages/QrScanner";
-import Welcome from "./pages/Welcome";
 
 function App() {
   return (
@@ -21,10 +18,6 @@ function App() {
       <Switch>
         <Route exact path="/" component={AdmitMe} />
         <Route exact path="/logincallback" component={UserInfoPage} />
-        <Route exact path="/qrcode" component={QrCode} />
-        <Route exact path="/welcome" component={Welcome} />
-        <Route exact path="/qrscanner" component={QrScanner} />
-
       </Switch>
       <Footer>
         <Footer.List>

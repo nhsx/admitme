@@ -5,5 +5,5 @@ export const  appConfig = {
     nhsRootDomain: 'https://auth.sandpit.signin.nhs.uk',
     scope: 'openid profile email phone profile_extended',
     responseType: 'code',
-    redirectUri: origin + '/welcome',
+    redirectUri: origin + '/logincallback',
   }
