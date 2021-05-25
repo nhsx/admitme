@@ -8,25 +8,47 @@ The software uses [NHS login](https://nhsconnect.github.io/nhslogin/) to provide
 
 The running prototype can be found [here](http://admit-me.services.nhs.uk/).
 
+## Getting started
 
-The project consists of 4 components: 
+Clone the repository:
+```
+git clone https://github.com/nhsx/admitme.git
+```
 
-## admitme-ui 
+Open a command line and set the current directory to one of the three apps in the repo (admitme-ui for example):
+```
+cd admitme/admitme-ui
+```
+
+Install the project dependencies (this will need to be done for all three apps):
+```
+yarn install
+```
+
+Once the install is done run the app locally:
+```
+yarn start
+```
+This will start a localhost server running the app.
+
+
+
+## Repository contents 
+
+### admitme-ui 
 
 The patient app using NHS login to generate a QR code.
 
 A ReactJS frontend using NHS UI toolkit
 
-## admitme-pas
+To run the app you will need to have set up your own NHS login sandpit environment and create a config.js file with details.
+
+### admitme-pas
 
 An app for scanning a QR code and displaying the patients data. Simulating the front desk software.
 
 A ReactJS app with barcode scanner library.
 
-## admitme-userinfo
+### admitme-userinfo
 
-A Lambda to get user information from sandpit environment
-
-## admitme-qrcode
-
-A NodeJS QR code generation utility
+A service which deployed on AWS Lambda to get user information from sandpit environment. In the admitme-ui app, on return from NHS login, a token is received. This token is sent to this service to look up the user details. These details are then used to generate a QR code in admitme-ui.
