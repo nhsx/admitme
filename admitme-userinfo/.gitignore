@@ -41,6 +41,7 @@ node_modules
 # project files that contain sensitive data
 .env
 event.json
+config.js
 private_key.pem
 policyDocument.json
 *.zip
