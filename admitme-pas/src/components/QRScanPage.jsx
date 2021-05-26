@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import BarcodeReader from 'react-barcode-reader'
+import BarcodeReader from 'react-barcode-reader';
 import { Container, Row, Col, Label, Button } from "nhsuk-react-components";
 import qrlogo from "../img/qrlogo.png";
 import Moment from 'moment';
