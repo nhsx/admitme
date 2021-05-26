@@ -43,11 +43,22 @@ A ReactJS frontend using NHS UI toolkit
 
 To run the app you will need to have set up your own NHS login sandpit environment and create a config.js file with details.
 
+You will need to create a ```.env``` file in the root of this folder and provide your NHS login sandpit client ID:
+```
+REACT_APP_NHS_LOGIN_CLIENT_ID=your_client_id
+```
+
 ### admitme-pas
 
 An app for scanning a QR code and displaying the patients data. Simulating the front desk software.
 
 A ReactJS app with barcode scanner library.
+
+You will need to create a ```.env``` file in the root of this folder and create two variables which will be used as the login details for the app:
+```
+REACT_APP_USER_ID=username
+REACT_APP_PASSWORD=password
+```
 
 ### admitme-userinfo
 
