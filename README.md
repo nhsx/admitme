@@ -13,6 +13,9 @@ Email address: testuserlive+1@demo.signin.nhs.uk
 Password: Passw0rd$1
 Security code: 190696
 ```
+Screenshots from the patient app:
+
+<img src="docs/screen1.png" width="200"> <img src="docs/screen2.png" width="200"> <img src="docs/screen5.png" width="200">
 
 ## Getting started
 
