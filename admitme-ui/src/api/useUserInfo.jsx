@@ -17,9 +17,8 @@ export default function useUserInfo(code) {
 
     async function getUserInfo(code) {
       try {
-        const corsURL =
-          "https://qh7tiboi2c.execute-api.eu-west-2.amazonaws.com/dev";
-
+        const corsURL = process.env.REACT_APP_BACKEND_URL;
+          
         if (!code) {
           console.log("No code");
           setUserInfo(null);
