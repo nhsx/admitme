@@ -28,10 +28,6 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
-# Dependency directory
-# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
-node_modules
-
 # Optional npm cache directory
 .npm
 
@@ -39,9 +35,16 @@ node_modules
 .node_repl_history
 
 # project files that contain sensitive data
-.env
+*.env
 event.json
 config.js
 private_key.pem
 policyDocument.json
 *.zip
+
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless

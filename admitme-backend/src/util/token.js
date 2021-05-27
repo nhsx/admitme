@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const uuid = require("uuidv4").default;
 const fs = require("fs");
 const jwksClient = require("jwks-rsa");
-const { logger } = require("../util/logger");
+const { logger } = require("./logger");
 
 const createAndSignBearerToken = ({ clientId, audience, privateKeyFilePath, privateKey }) => {
   if (!privateKey && !privateKeyFilePath) {

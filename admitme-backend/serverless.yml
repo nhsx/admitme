@@ -1,0 +1,27 @@
+# Welcome to Serverless!
+# For full config options, check the docs:
+#    docs.serverless.com
+
+service: admitme-backend
+
+frameworkVersion: "2"
+
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  region: eu-west-2
+  stage: dev
+
+functions:
+  getUserInfo:
+    handler: src/index.performUserInfoDetails
+    environment:
+      NHS_LOGIN_CLIENT_ID: ${env:NHS_LOGIN_CLIENT_ID}
+    events:
+      - http:
+          path: /
+          method: post
+          cors: true
