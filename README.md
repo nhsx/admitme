@@ -2,7 +2,7 @@
 
 This is the source code for the Admit Me prototype which was developed by the NHSX Innovation Lab. 
 
-This software was developed specifically to test how patients might be able to check-in to care settings using a QR code on their device. 
+This software was developed specifically to test how we might be able to save time, preserve patient privacy and reduce the potential to introduce errors (typos) into the patient record when admitting patients into care settings, using a QR code on their device.
 
 The software uses [NHS login](https://nhsconnect.github.io/nhslogin/) to provide the user's data which is then encoded into a QR code. For this trial the [NHS login sandpit environment](https://nhsconnect.github.io/nhslogin/integrating-to-sandpit/) was used. If you wish to run the software yourself, you will need to configure your own sandpit environment (our configuration has not been shared for security purposes).  
 
@@ -75,9 +75,6 @@ REACT_APP_NHS_LOGIN_CLIENT_ID=your_client_id
 A service which is deployed on AWS Lambda to get user information from the NHS login sandpit environment. In the admitme-ui app, on return from NHS login, a token is received. This token is sent to this service to look up the user details which are passed back to the frontend app. These details are then used to generate a QR code in admitme-ui.
 
 This service uses a [JSON web token](https://jwt.io/) to sign the request. A private key file is needed to sign it - you will need to provide your own for this. 
-
-NOTE: I'm not entirely sure how this backend jwt signing procedure was set up and currently trying to figure this out.
-
 
 You will need to create a ```.env``` file in the root of this folder and provide your NHS login sandpit client ID:
 ```
