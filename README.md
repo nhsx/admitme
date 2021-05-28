@@ -47,7 +47,7 @@ This will start a localhost server running the app.
 
 ### admitme-pas
 
-An app for scanning a QR code and displaying the patients data. Simulating the front desk software.
+An app for scanning a QR code and displaying the patient's data. Simulating the front desk software.
 
 A ReactJS app with barcode scanner library.
 
