@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import { Container, BodyText, Button, Input, Form } from "nhsuk-react-components";
 import { appConfig } from "../config";
 
-const getAuthCode = () => {
-  window.location.href = '/';
-};
-
 function Loginpage() {
 
   const [name, setName] = useState("");
@@ -14,7 +10,7 @@ function Loginpage() {
     evt.preventDefault();
     let username = `${name}`;
     let password_new = `${password}`;
-    if (username == appConfig.userid && password_new == appConfig.passowrd) {
+    if (username === appConfig.userid && password_new === appConfig.passowrd) {
       window.location.href = '/ScanQR?user=' + username;
       return true;
     } else {

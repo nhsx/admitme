@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import BarcodeReader from 'react-barcode-reader';
 import { Container, Row, Col, Label, Button, InsetText } from "nhsuk-react-components";
-import qrlogo from "../img/qrlogo.png";
 import Moment from 'moment';
 
 class QRScanPage extends Component {
@@ -94,6 +93,10 @@ class QRScanPage extends Component {
                   </p>
                 </InsetText>
 
+                <BarcodeReader
+                  onError={this.handleError}
+                  onScan={this.handleScan}
+                />
               </Col>
             </Row>
             <Row>
