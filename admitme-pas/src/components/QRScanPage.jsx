@@ -33,10 +33,7 @@ class QRScanPage extends Component {
     //data = { "resourceType": "Bundle", "meta": { "profile": ["https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"] }, "type": "message", "entry": [{ "fullUrl": "urn:uuid:b64c4afa-8261-11eb-8dcd-0242ac130003", "resource": { "resourceType": "Patient", "id": "b64c4afa-8261-11eb-8dcd-0242ac130003", "identifier": [{ "value": "123 456 7890" }], "name": [{ "use": "official", "family": "Abthorpe", "given": ["Saoirse"] }], "telecom": [{ "system": "phone", "value": "07701234567", "use": "mobile" }, { "system": "email", "value": "saoirse.abthorpe@domain.com" }], "birthDate": "30 March 1954" } }] }
     //let parsed = data;
 
-    // String handling - scanner is sending funky strings in! Replace @ symbols except for the email.
-    // data = data.replace(/@/g, '"');
-    // data = data.replace(/#/g, '\\');
-    // data = data.replace(/"demo/g, '@demo');
+    // Warning: there is very (no) exception handling once the minimum number of keys (6) is sent through this function
 
     let parsed = JSON.parse(data);
     let resource = parsed.entry[0].resource;
@@ -57,7 +54,6 @@ class QRScanPage extends Component {
 
   cleardata() {
     this.setState({
-      result: 'No result',
       nhsnumber: '',
       fullname: '',
       email: '',
