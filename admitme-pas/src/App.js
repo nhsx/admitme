@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header, Footer } from "nhsuk-react-components";
 import Loginpage from "./components/Loginpage";
 import QRScanPage from "./components/QRScanPage"
@@ -13,11 +13,10 @@ function App() {
           <Header.ServiceName href="/">NHSX PAS</Header.ServiceName>
         </Header.Container>
       </Header>
-      <Switch>
-        <Route exact path='/' component={Loginpage} />
-        <Route exact path='/:ScanQR' component={QRScanPage} />        
-
-      </Switch>
+      <Routes>
+        <Route exact path='/' element={<Loginpage />} />
+        <Route exact path='/:ScanQR' element={<QRScanPage />} />
+      </Routes>
       <Footer>
         <Footer.List>
           <Footer.ListItem href="/">NHSX PAS</Footer.ListItem>

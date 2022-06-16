@@ -9,7 +9,6 @@ class QRScanPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      result: 'No result',
       nhsnumber: '',
       fullname: '',
       email: '',
@@ -29,28 +28,29 @@ class QRScanPage extends Component {
   }
 
   handleScan(data) {
-    // String handling - scanner is sending funky strings in! Replace @ symbols except for the email.
-    data = data.replace(/@/g, '"');
-    data = data.replace(/#/g, '\\');
-    data = data.replace(/"demo/g, '@demo');
+    // data is the keypresses sent by the bardcode reader (or testCode attribute)
+    // we will mock the data with the intended QR code from https://www.innovationlab.nhs.uk/logincallback
+    //data = { "resourceType": "Bundle", "meta": { "profile": ["https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"] }, "type": "message", "entry": [{ "fullUrl": "urn:uuid:b64c4afa-8261-11eb-8dcd-0242ac130003", "resource": { "resourceType": "Patient", "id": "b64c4afa-8261-11eb-8dcd-0242ac130003", "identifier": [{ "value": "123 456 7890" }], "name": [{ "use": "official", "family": "Abthorpe", "given": ["Saoirse"] }], "telecom": [{ "system": "phone", "value": "07701234567", "use": "mobile" }, { "system": "email", "value": "saoirse.abthorpe@domain.com" }], "birthDate": "30 March 1954" } }] }
+    //let parsed = data;
 
-    let parsed = JSON.parse(data).replace('\\', '');
-    parsed = JSON.parse(parsed);
-    parsed.entry.map((test) => {
-      let nhs_number = test.resource.identifier[0].value;
-      this.setState({
-        result: data,
-        nhsnumber: nhs_number.substring(0, 3) + " " + nhs_number.substring(3, 6) + " " + nhs_number.substring(6, 11),
-        fullname: test.resource.name[0].given[0] + ' ' + test.resource.name[0].family,
-        mobile: test.resource.telecom[0].value,
-        email: test.resource.telecom[1].value,
-        dob: Moment(test.resource.birthDate).format('DD/MM/YYYY'),
-        disbld: false,
-      })
-    }
-    )
+    // String handling - scanner is sending funky strings in! Replace @ symbols except for the email.
+    // data = data.replace(/@/g, '"');
+    // data = data.replace(/#/g, '\\');
+    // data = data.replace(/"demo/g, '@demo');
+
+    let parsed = JSON.parse(data);
+    let resource = parsed.entry[0].resource;
+    let nhs_number = resource.identifier[0].value;
+    this.setState({
+      nhsnumber: nhs_number.substring(0, 3) + " " + nhs_number.substring(3, 6) + " " + nhs_number.substring(6, 11),
+      fullname: resource.name[0].given[0] + ' ' + resource.name[0].family,
+      mobile: resource.telecom[0].value,
+      email: resource.telecom[1].value,
+      dob: Moment(resource.birthDate).format('DD/MM/YYYY'),
+      disbld: false,
+    })
   }
-  
+
   handleError(err) {
     console.error(err)
   }
