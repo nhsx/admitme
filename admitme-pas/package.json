@@ -9,7 +9,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^4.6.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "nhsuk-frontend": "^4.1.0",
     "nhsuk-react-components": "^1.2.8",
     "node-sass": "^5.0.0",
